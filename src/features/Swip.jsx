@@ -1,80 +1,79 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-flip";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// Images
+import image1 from "../assets/WhatsApp Image 2024-01-17 at 14.21.27_e12ef601.jpg";
+import image2 from "../assets/WhatsApp Image 2024-01-17 at 14.21.28_1e28c956.jpg";
+import image3 from "../assets/WhatsApp Image 2024-01-17 at 14.21.28_7b4b1bbb.jpg";
 
-// import required modules
-import { EffectFlip, Pagination, Navigation, Autoplay } from "swiper/modules";
+// BTN
 import Buttons from "../component/Buttons/Buttons";
 
-export default function Swip() {
-  const numberList = [1, 2, 3, 4];
+const Swipper = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
+  const images = [image1, image2, image3];
+
   return (
-    <>
-      <Swiper
-        effect={"flip"}
-        grabCursor={true}
-        pagination={false}
-        navigation={false}
-        modules={[EffectFlip, Pagination, Navigation, Autoplay]}
-        className="mySwiper"
-        spaceBetween={50}
-        slidesPerView={1}
-        autoplay={{
-          delay: 3000, // Set the time interval between slides in milliseconds
-          disableOnInteraction: true, // Autoplay continues even when user interacts with slides
+    <div>
+      <div
+        style={{
+          position: "absolute",
+          color: "white",
+          zIndex: "30",
+          textAlign: "center",
+          paddingLeft: "30%",
+          paddingTop: "40vh",
+          fontSize: "80px",
         }}
       >
-        {/* {ImageList.map((data, index) => (
-          <SwiperSlide key={index} >
-            style={{ position: "relative" }}
+        <h3> Flavors for all!</h3>
+        <Buttons NameBtn={"VIEW MENU"} />
+      </div>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlaySpeed={5000}
+        customTransition="all .10s"
+        transitionDuration={7000}
+        removeArrowOnDeviceType={["desktop", "mobile"]}
+        autoPlay={true}
+        pauseOnHover={false}
+      >
+        {images?.map((image, index) => (
+          <div key={index}>
             <img
-              src={data.strMealThumb}
-              alt={`Slide ${index}`}
-              onClick={(e) => {
-                idName(data.strMeal);
-                detailDisplay(data.strInstructions);
+              src={image}
+              style={{
+                width: "100%",
+                height: "100vh",
+                position: "relative",
               }}
-              style={{ position: "relative" }}
             />
-          </SwiperSlide>
-        ))} */}
-        {numberList.map((number, index) => (
-          <SwiperSlide key={index} style={{ position: "relative" }}>
-            <p style={{ fontSize: "2em", textAlign: "center" }}>{number}</p>
-          </SwiperSlide>
-        ))}
-        <div
-          style={{
-            position: "absolute",
-            marginTop: "-32%",
-            marginLeft: "25%",
-            fontSize: "60px",
-            // display: "flex",
-            // flexDirection: "column",
-            // justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "1.1em",
-            }}
-          >
-            <h3> Flavor's for all delight</h3>
-            <Buttons NameBtn={"View Menu"} width={"15vw"} />
           </div>
-        </div>
-      </Swiper>
-      {/* </Swiper> */}
-    </>
+        ))}
+
+        {/* <div className="items">Item 4</div> */}
+      </Carousel>
+    </div>
   );
-}
+};
+export default Swipper;

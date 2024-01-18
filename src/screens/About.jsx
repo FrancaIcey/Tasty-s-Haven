@@ -1,4 +1,4 @@
-function History() {
+function About() {
   return (
     <>
       <div style={{ fontSize: "3em", color: "red" }}>History</div>
@@ -6,6 +6,6 @@ function History() {
   );
 }
 
-export default History;
+export default About;
 
 // export function =

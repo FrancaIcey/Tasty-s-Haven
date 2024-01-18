@@ -14,18 +14,18 @@
 /* Styling from the body */
 .body {
   width: 100%;
-  height: 400vh;
-  /* background: red; */
+  height: 600vh;
+  background: rgb(59, 55, 55);
 }
 
 /* Grid System */
 .gridBody {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 3% 24% 63% 10%;
+  grid-template-rows: 1.9% 15.1% 77% 6%;
   grid-template-areas: "one" "two" "three" "four";
   /* width: 100vw; */
-  height: 400vh;
+  height: 600vh;
 }
 
 /* GRIDING COMPONENTS */
@@ -33,9 +33,22 @@
   grid-area: one;
   /* background: red; */
 }
+/* Menu */
+.secondGridMenu {
+  grid-area: two;
+  /* background: green; */
+  background-image: url(./assets/sweet_food.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+/*  */
+
 .secondGrid {
   grid-area: two;
-  background: green;
+  /* background: green; */
 }
 .thirdGrid {
   grid-area: three;
@@ -43,7 +56,11 @@
 }
 .fourthGrid {
   grid-area: four;
-  background: yellow;
+  background: linear-gradient(
+    90deg,
+    rgba(116, 94, 56, 1) 0%,
+    rgba(80, 61, 28, 1) 0%
+  );
 }
 /* End of GRIDING COMPONENTS */
 
@@ -58,4 +75,71 @@
 /* for only swiper */
 .mySwiper {
   height: 100%;
+}
+
+/* Contacts */
+/* Styling from the body */
+.bodyContact {
+  width: 100%;
+  height: 250vh;
+  background: rgb(59, 55, 55);
+}
+
+/* Grid System */
+.gridContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 4.5% 25.5% 55% 15%;
+  grid-template-areas: "one" "two" "three" "four";
+  /* width: 100vw; */
+  height: 250vh;
+}
+
+/* GRIDING COMPONENTS */
+.firstGridContainer {
+  grid-area: one;
+  /* background: red; */
+}
+.secondGridContainer {
+  grid-area: two;
+  /* background: green; */
+  background-image: url(./assets/sweet_food.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.thirdGridContainer {
+  grid-area: three;
+  /* background: pink; */
+}
+.fourthGridContainer {
+  grid-area: four;
+  /* background: linear-gradient(
+    90deg,
+    rgba(116, 94, 56, 1) 0%,
+    rgba(80, 61, 28, 1) 0%
+  ); */
+}
+/* End of GRIDING COMPONENTS */
+
+/* Listed tabs for navigation names*/
+.list li:hover {
+  /* color: yellow; */
+  transition: 1.5s;
+  transform: scale(1.4) skew(3deg);
+}
+/* End of Listed tabs for navigation names*/
+
+.MuiInputBase-formControl {
+  background: wheat;
+}
+.MuiFormHelperText-sizeMedium {
+  color: white;
+}
+.text {
+  width: 90%;
+  height: 15vh;
+  background: wheat;
 }
